@@ -1,18 +1,30 @@
+document.getElementById('error-message').style.display = 'none';
     
-    
-const searchBook=async()=>{
+const searchBook=()=>{
   const searchField=document.getElementById('search-field');
   const searchText=searchField.value;
     searchField.value='';
+    if (searchText == '') {
+   
+      document.getElementById('error-message').style.display = 'block';
+  }
+  else {
+    
+      document.getElementById('error-message').style.display = 'none';
+
+      // Clear Search Result
+      document.getElementById('search-field').textContent ='';
+
     const url=`https://openlibrary.org/search.json?q=${searchText}`;
   
      fetch(url)
     .then(res=>res.json())
     .then(data=>displayBook(data.docs.slice(0,30))) 
+  }
 }
 
-   
 const displayBook=books=>{
+    document.getElementById('error-message').textContent = '';
     const bookContainer=document.getElementById('book-container');
     bookContainer.textContent='';
  
