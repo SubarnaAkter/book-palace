@@ -54,9 +54,9 @@ const displayBook=books=>{
         div.innerHTML=`
                     <div class="col shadow-lg rounded">
                       <div class="card h-100">
-                        <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="pt-3 card-img-top w-50 h-50 mx-auto" alt="...">
+                        <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="pt-3 card-img-top w-50  mx-auto" alt="..." height="250px">
                         <div class="card-body">
-                          <h3 class="card-title text-center">${book.title}</h3>
+                          <h3 class="card-title text-center heading">${book.title}</h3>
                           <h6 class="card-text  text-center">Author:${book.author_name?book.author_name[0]:''}.</h6>
                           <h6 class="card-text  text-center">Publisher:${book.publisher?book.publisher[0]:''}.</h6>
                           <h6 class="card-text  text-center">${book.first_publish_year?book.first_publish_year:''}.</h6>
