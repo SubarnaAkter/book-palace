@@ -1,5 +1,5 @@
 document.getElementById('error-message').style.display = 'none';
-
+document.getElementById('spinner').style.display = 'none';
 //search book
 const searchBook=()=>{
   const searchField=document.getElementById('search-field');
@@ -11,7 +11,9 @@ const searchBook=()=>{
   }
   //fetch data
   else {
-    
+      // Display Spinner
+      document.getElementById('spinner').style.display = 'block';
+
       document.getElementById('error-message').style.display = 'none';
       document.getElementById('search-field').textContent ='';
 
@@ -24,6 +26,7 @@ const searchBook=()=>{
 }
 //error handle
 const displayError = () => {
+  document.getElementById('spinner').style.display = 'none';
   document.getElementById('error-message').style.display = 'block';
   document.getElementById('book-numbers').textContent = '';
   document.getElementById('book-container').textContent = '';
@@ -33,16 +36,18 @@ const displayBook=books=>{
     document.getElementById('book-numbers').textContent = '';
     const bookContainer=document.getElementById('book-container');
     bookContainer.textContent='';
-    
-    document.getElementById('error-message').style.display = 'none';
-   
-    document.getElementById('book-numbers').innerText = `Books Found ${books.length}`;
+
 //if no invalid book name or no book found
     if(books.length===0){
       displayError();
       
     }
     else{
+      document.getElementById('error-message').style.display = 'none';
+   
+      document.getElementById('book-numbers').innerText = `Books Found ${books.length}`;
+      document.getElementById('spinner').style.display = 'none';
+      
       books.slice(0,30)?.forEach(book=>{
       
         const div=document.createElement('div');
